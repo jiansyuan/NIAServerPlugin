@@ -122,7 +122,7 @@ inline bool work(const std::string &chunkName, OreXYZ pos1, OreXYZ pos2) {
     int x1 = pos1.x, y1 = pos1.y, z1 = pos1.z, x2 = pos2.x, y2 = pos2.y, z2 = pos2.z;
     !(x1 > x2) ? (void)0 : std::swap(x1, x2);
     !(y1 > y2) ? (void)0 : std::swap(y1, y2);
-    !(z1 > z2) ? (void)0 : std::swap(z1, z1);
+    !(z1 > z2) ? (void)0 : std::swap(z1, z2);
    for (int i = x1; i <= x2; i++)
         for (int j = y1; j <= y2; j++)
             for (int k = z1; k <= z2; k++)
