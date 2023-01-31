@@ -139,7 +139,7 @@ void PluginInit() {
     using ParamType = DynamicCommand::ParameterType;
     using Param = DynamicCommand::ParameterData;
 
-
+    
     DynamicCommand::setup(
         "spawnores",
         "Respawn ores.(NIA Server Ore Plugin)",
