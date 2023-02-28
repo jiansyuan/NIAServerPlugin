@@ -10,3 +10,4 @@ git clone https://github.com/LiteLDev/PluginTemplate-cpp.git
 ```
 
 Replace the file "src", then open with visual studio 2022.
+test
