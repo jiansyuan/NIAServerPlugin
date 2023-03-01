@@ -1,3 +1,5 @@
+[中文](README_ZH.md)
+
 # NIAServerPlugin
 
 See main project at [NIASERVER V4](https://github.com/NIANIANKNIA/NIASERVER-V4).
@@ -11,5 +13,5 @@ Run in the powershell in the path you want：
 git clone https://github.com/LiteLDev/PluginTemplate-cpp.git
 ```
 
-Replace the file "src", then open with visual studio 2022.
+Replace the folder "src", then open with Visual Studio 2022.
 
