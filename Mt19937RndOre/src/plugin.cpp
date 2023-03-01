@@ -18,6 +18,7 @@
 #include <llapi/mc/Block.hpp>
 #include <llapi/mc/BlockInstance.hpp>
 
+
 #include <llapi/DynamicCommandAPI.h>
 #include <llapi/EventAPI.h>
 #include <llapi/GlobalServiceAPI.h>
@@ -104,8 +105,6 @@ tryag:;
 inline string strXYZ(int x, int y, int z) {return std::to_string(x) + ' ' + std::to_string(y) + ' ' + std::to_string(z) + ' ';}
 inline string strXYZ(const OreXYZ& blkpos) { return std::to_string(blkpos.x) + ' ' + std::to_string(blkpos.y) + ' ' + std::to_string(blkpos.z) + ' '; }
 
-inline void loadore(const std::string& chunkName) {
-}
 inline bool sbsbcmp(const std::pair<Block*, long double>& x1, const std::pair<Block*, long double>& x2) {
     return x1.second < x2.second;
 }
@@ -135,10 +134,10 @@ inline bool work(const std::string &chunkName, OreXYZ pos1, OreXYZ pos2) {
 
 void PluginInit() {
 
-    Nlog.info("Run....."), initplugin(); 
+    Nlog.info("Run....."); initplugin();
     using ParamType = DynamicCommand::ParameterType;
     using Param = DynamicCommand::ParameterData;
-
+    
     
     DynamicCommand::setup(
         "spawnores",

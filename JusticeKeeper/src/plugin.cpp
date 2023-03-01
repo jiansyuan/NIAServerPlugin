@@ -46,17 +46,16 @@ void PluginInit(){
 			auto ticks = results["ticks"].get<int>();
 			umap[player] = ticks, Level::runcmd("tag "+player+" add convict");
 		}, CommandPermissionLevel::GameMasters);
-
 	Event::BlockChangedEvent::subscribe([](const Event::BlockChangedEvent& ev) {
 		auto pre = ev.mPreviousBlockInstance; 
 		if (pre.getBlock()->getTypeName().compare("minecraft:wheat")!=0 || !(getDistance(pre.getPosition().toVec3(), 698, 81, 554) < 150)) return true;
 		auto[x, y, z] = pre.getPosition().toVec3();
-		Player* player = (Level::setBlock({ x, y - 1, z }, 0, "minecraft:farmland", 0), nullptr);
+		Player* player = (Level::setBlock({ x, y - 1, z }, 0, "minecraft:farmland", 0), Level::setBlock({ x, y, z }, 0, "minecraft:wheat", 7), nullptr);
 		for (auto& i : Level::getAllPlayers())
 			if (getDistancef(i->getPos(), x, y, z) <= 2.f) return Nlog.info(i->getName() + "破坏主城麦田罚款10000"), Scoreboard::reduceScore(i, "money", 10000),
 				Level::runcmd("w " + i->getName() + " 你因为破坏主城麦田，被NIA服时空警察当场抓获。处以罚金10000元能源币，希望你能知错就改。"),
-				(Scoreboard::getScore(i, "money") < 0) ? (umap[i->addTag("convict"), i->getName()] = 5 * 60 * 20) : 114514191810, false;
-		return false;
+				(Scoreboard::getScore(i, "money") < 0) ? (umap[i->addTag("convict"), i->getName()] = 5 * 60 * 20) : 114514191810, true;
+		return true;
 	});
 	Schedule::repeat([]() {
 		for (auto& i : Level::getAllPlayers()) {
