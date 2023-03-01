@@ -2,7 +2,6 @@
 
 # NIAServerPlugin
 
----
 
 See main project at [NIASERVER V4](https://github.com/NIANIANKNIA/NIASERVER-V4).
 
