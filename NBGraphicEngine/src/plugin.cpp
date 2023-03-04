@@ -41,8 +41,7 @@ float Qstatus = 0;
 int roundticks = 0;
 
 void AlwWork() {
-	while(1)
-	Qstatus += SPEED, Qstatus -= Qstatus > 360 ? 360 : 0, Sleep(updateTick*50);
+	while(1) Qstatus += SPEED, Qstatus -= Qstatus > 360 ? 360 : 0, Sleep(updateTick*50);
 }
 
 void updateTag(const vector<Player*>& vec) {
