@@ -6,5 +6,5 @@
 
 一个基于[LiteLoaderBDS](https://github.com/LiteLDev/LiteLoaderBDS) 项目实现的我的世界基岩版C++插件, 遵循[MIT License](https://github.com/jiansyuan/NIAServerPlugin/blob/main/LICENSE).
 
-
+我的博客网站：[jiansyuan.github.io](https://jiansyuan.github.io)
 
