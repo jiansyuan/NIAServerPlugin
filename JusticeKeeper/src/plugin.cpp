@@ -48,7 +48,7 @@ void PluginInit(){
 		}, CommandPermissionLevel::GameMasters);
 	Event::BlockChangedEvent::subscribe([](const Event::BlockChangedEvent& ev) {
 		auto pre = ev.mPreviousBlockInstance; 
-		if (pre.getBlock()->getTypeName().compare("minecraft:wheat")!=0 || !(getDistance(pre.getPosition().toVec3(), 698, 81, 554) < 150)) return true;
+		if (pre.getBlock()->getName()!= HashedString("minecraft:wheat") || !(getDistance(pre.getPosition().toVec3(), 698, 81, 554) < 150)) return true;
 		auto[x, y, z] = pre.getPosition().toVec3();
 		Player* player = (Level::setBlock({ x, y - 1, z }, 0, "minecraft:farmland", 0), Level::setBlock({ x, y, z }, 0, "minecraft:wheat", 7), nullptr);
 		for (auto& i : Level::getAllPlayers())
@@ -60,7 +60,7 @@ void PluginInit(){
 	Schedule::repeat([]() {
 		for (auto& i : Level::getAllPlayers()) {
 			(umap.find(i->getName()) == umap.end() || umap[i->getName()] <= 0) ? i->removeTag("convict") : 1145141919810;
-			if (!i->hasTag("convict")) continue;
+			if (!i->hasTag("convict")) continue; 
 			umap[i->getName()] -= 5;
 			if (getDistance(i->getPos(), 737, 86, 555) > 8) i->teleport({ 737, 86, 555 }, 0),
 				Level::runcmd("w " + i->getName() + " 你还有" + std::to_string(umap[i->getName()] / 1200.f) + "分钟的刑期。");
